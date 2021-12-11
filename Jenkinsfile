@@ -2,8 +2,8 @@ pipeline {
   stages {
     stage ('build') {
       steps {
-        step.sh "echo Building Jenkins Project"
-        step.sh "mvn clean build"
+        sh "echo Building Jenkins Project"
+        sh "mvn clean build"
       }
     }
   }
