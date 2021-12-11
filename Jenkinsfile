@@ -2,9 +2,9 @@ pipeline {
   agent any
   stages {
     stage ('build') {
-      steps {
-        sh "echo Building Jenkins Project"
-        sh "mvn clean build"
+      git url: 'https://github.com/RupenMan/JekinsTest.git'
+      withMaven {
+        sh 'mvn clean install'
       }
     }
   }
