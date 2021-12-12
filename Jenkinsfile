@@ -12,6 +12,7 @@ pipeline {
   stages {
     stage ('Build') {
       steps {
+        sh "apt-get install yum"
         sh "yum install openssh-clients"
         sh "ssh -V"
         sh "mvn -version"
