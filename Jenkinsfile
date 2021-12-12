@@ -37,6 +37,7 @@ pipeline {
 
       echo "Docker Image Tag Name: ${dockerImageTag}"
     }
+  }
 
   post {
     always {
