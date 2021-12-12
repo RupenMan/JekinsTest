@@ -15,18 +15,6 @@ pipeline {
         sh "./scripts/deploy-service.sh"
       }
     }
-    stage ("Publish Test Report") {
-      parallel(
-        publishJunitTestsResultsToJenkins: {
-           echo "Publish junit Tests Results"
-           junit '**/target/surefire-reports/TEST-*.xml'
-            archive 'target/*.jar'
-         },
-         publishJunitTestsResultsToSonar: {
-           echo "This is branch b"
-       }
-     )
-    }
     stage ('Build Docker Image') {
       sh "whoami"
       sh "ls -all /var/run/docker.sock"
