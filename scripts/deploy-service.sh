@@ -1,2 +1,3 @@
-mvn --version
-mvn clean install
+ssh rupendra@192.168.2.230
+
+pwd
