@@ -1,6 +1,24 @@
-node {
-  git url: 'https://github.com/RupenMan/JekinsTest.git'
-  withMaven {
-    sh 'mvn clean install'
+pipeline {
+  agent {
+    docker {
+      image "maven:3.6.0-jdk-13"
+      label "docker"
+    }
   }
+
+  stages {
+    stage ('Build') {
+      steps {
+        sh "mvn -version"
+        sh "mvn clean install"
+      }
+    }
+  }
+
+  post {
+    always {
+      cleanWs()
+    }
+  }
+
 }
