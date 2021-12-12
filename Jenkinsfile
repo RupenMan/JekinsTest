@@ -15,11 +15,6 @@ pipeline {
         sh "./scripts/deploy-service.sh"
       }
     }
-    stage ('Build Docker Image') {
-      steps {
-        sh "mv /var/lib/jenkins/workspace/Hello_World_Test/target/test-0.0.1-SNAPSHOT.jar ./data"
-      }
-    }
   }
 
   post {
