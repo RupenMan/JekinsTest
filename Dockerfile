@@ -1,2 +1,1 @@
-FROM openjdk:8-jre-alpine
-VOLUME /tmp
+FROM maven:3.6.0-jdk-11
