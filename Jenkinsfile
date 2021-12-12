@@ -17,8 +17,7 @@ pipeline {
     }
     stage ('Build Docker Image') {
       steps {
-        sh "ls -all /var/run/docker.sock"
-        sh "mv ./target/test*.jar ./data"
+        sh "mv /var/lib/jenkins/workspace/Hello_World_Test/target/test-0.0.1-SNAPSHOT.jar ./data"
       }
     }
   }
