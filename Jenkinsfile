@@ -11,8 +11,8 @@ pipeline {
   stages {
     stage ('Build Project') {
       steps {
-        sh "chmod +x ./script/deploy-service.sh"
-        sh "./script/deploy-service.sh"
+        sh "chmod +x ./scripts/deploy-service.sh"
+        sh "./scripts/deploy-service.sh"
       }
     }
     stage ('Build Docker Image') {
