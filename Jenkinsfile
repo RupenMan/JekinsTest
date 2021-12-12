@@ -10,4 +10,10 @@ node {
       sh 'mvn spring-boot:run'
      }
    }
+
+   post {
+    always {
+      cleanWs()
+    }
+   }
 }
