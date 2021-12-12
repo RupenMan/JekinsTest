@@ -1,3 +1,12 @@
-FROM maven:3.6.0-jdk-11
+FROM maven:3.6.0-jdk-11 as build
 
-RUN useradd -m -u 1000 -s /bin/bash jenkins
+WORKDIR /app
+COPY . .
+RUN mvn clean install
+
+FROM openjdk:8-jre-alpine
+WORKDIR /app
+COPY --from=build /app/target/*.jar /app/app.jar
+EXPOSE 9090
+ENTRYPOINT ["sh", "-c"]
+CMD ["java -jar app.jar"]
