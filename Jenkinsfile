@@ -1,7 +1,11 @@
 pipeline {
+  environment {
+    JAVA_OPTION_TOOLS = '-Duser.home=/home/rupendra'
+  }
   agent {
     docker {
-      image 'maven:3.6.0'
+      image 'maven:3.6.0-jdk-11'
+      args '-v /tmp/maven:/home/rupendra/.m2 -e MAVEN_CONFIG=/home/rupendra/.m2'
     }
   }
 
