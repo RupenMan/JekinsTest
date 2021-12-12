@@ -7,3 +7,9 @@ WORKDIR /tmp/
 
 RUN mvn package
 
+#default command
+CMD java -jar /data/test-0.0.1-SNAPSHOT.jar
+
+#copy hello world to docker image from builder image
+
+COPY --from=maven_build /tmp/target/test-0.0.1-SNAPSHOT.jar /data/test-0.0.1-SNAPSHOT.jar
