@@ -5,10 +5,9 @@ node {
           sh 'mvn clean install'
       }
    }
-
-   post {
+}
+post {
     always {
       cleanWs()
-    }
-   }
+  }
 }
