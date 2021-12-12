@@ -11,13 +11,12 @@ pipeline {
   stages {
     stage ('Build Project') {
       steps {
-        sh "mvn --version"
-        sh "mvn clean install"
+        sh "chmod +x ./script/deploy-service.sh"
+        sh "./script/deploy-service.sh"
       }
     }
     stage ('Build Docker Image') {
       steps {
-        sh "whoami"
         sh "ls -all /var/run/docker.sock"
         sh "mv ./target/test*.jar ./data"
       }
