@@ -5,11 +5,6 @@ node {
           sh 'mvn clean install'
       }
    }
-   stage ('Deploy') {
-     withMaven {
-      sh 'mvn spring-boot:run'
-     }
-   }
 
    post {
     always {
