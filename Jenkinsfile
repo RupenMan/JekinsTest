@@ -20,12 +20,6 @@ pipeline {
         sh "whoami"
         sh "ls -all /var/run/docker.sock"
         sh "mv ./target/test*.jar ./data"
-        dockerImage = docker.build("test")
-      }
-    }
-    stage('Deploy Docker Image'){
-      steps {
-        echo "Docker Image Tag Name: ${dockerImageTag}"
       }
     }
   }
