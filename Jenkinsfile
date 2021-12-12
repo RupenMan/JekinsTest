@@ -11,8 +11,8 @@ pipeline {
   stages {
     stage ('Build Project') {
       steps {
-        sh "chmod +x ./scripts/deploy-service.sh"
-        sh "./scripts/deploy-service.sh"
+        sh "mvn --version"
+        sh "mvn clean install"
       }
     }
     stage ('Build Docker Image') {
