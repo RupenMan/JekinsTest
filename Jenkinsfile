@@ -1,6 +1,7 @@
 pipeline {
   environment {
     JAVA_OPTION_TOOLS = '-Duser.home=/home/jenkins'
+    REMOTE_SERVER_USER_CREDENTIALS = credentials('remote-server-connector-id')
   }
   agent {
     dockerfile {
