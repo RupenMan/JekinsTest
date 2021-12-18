@@ -9,7 +9,11 @@ pipeline {
     stage ('Build Project') {
       steps {
         sshagent(credentials: ['remote-server-connector-id']) {
-          sh 'pwd'
+          sh '''
+            pwd
+            cd $HOME
+          '''
+
         }
 
       }
