@@ -3,11 +3,7 @@ pipeline {
     JAVA_OPTION_TOOLS = '-Duser.home=/home/jenkins'
     REMOTE_SERVER_USER_CREDENTIALS = credentials('remote-server-connector-id')
   }
-  agent {
-    dockerfile {
-      args '-v /tmp/maven:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2'
-    }
-  }
+  agent any
 
   stages {
     stage ('Build Project') {
