@@ -12,6 +12,7 @@ pipeline {
           sh '''
             pwd
             cd $HOME
+            cd /home/rupendra
           '''
 
         }
