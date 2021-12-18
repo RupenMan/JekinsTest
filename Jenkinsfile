@@ -8,8 +8,10 @@ pipeline {
   stages {
     stage ('Build Project') {
       steps {
-        sh "chmod +x ./scripts/deploy-service.sh"
-        sh "./scripts/deploy-service.sh"
+        sshagent(credentials: ['remote-server-connector-id']) {
+          sh 'pwd'
+        }
+
       }
     }
   }
