@@ -8,15 +8,22 @@ pipeline {
   stages {
     stage ('Build Project') {
       steps {
+        sh 'mvn clean install'
+        sh 'pwd'
+      }
+    }
+    stage ('Build Image') {
+      steps {
         sshagent(credentials: ['remote-server-connector-id']) {
           sh '''
               chmod +x ./scripts/deploy-service.sh
               ./scripts/deploy-service.sh
             '''
         }
-
       }
     }
+
+
   }
 
   post {
