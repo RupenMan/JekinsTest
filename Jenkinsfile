@@ -10,12 +10,9 @@ pipeline {
       steps {
         sshagent(credentials: ['remote-server-connector-id']) {
           sh '''
-            pwd
-            cd $HOME
-            cd /home/rupendra
-            ls
-          '''
-
+              chmod +x ./scripts/deploy-service.sh
+              ./scripts/deploy-service.sh
+            '''
         }
 
       }
