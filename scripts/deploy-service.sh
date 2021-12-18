@@ -1,4 +1,5 @@
 
-echo "Running the scripts >--------<"
-echo "USERNAME ::" $REMOTE_SERVER_USER_CREDENTIALS_USR
-echo "PASSWORD ::" $REMOTE_SERVER_USER_CREDENTIALS_PSW
+pwd
+mvn --version
+systemctl status docker
+
